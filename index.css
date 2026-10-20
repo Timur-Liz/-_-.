@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-hand: "Kalam", cursive;
+
+  --color-cream: #f7f2e7;
+  --color-paper: #faf6ec;
+  --color-ink: #1a1208;
+  --color-burgundy: #7a1f2b;
+  --color-burgundy-dark: #4e1119;
+  --color-gold: #b8924a;
+  --color-gold-light: #d4b470;
+  --color-forest: #2d4a3e;
+  --color-forest-light: #4a7a63;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.drop-cap::first-letter {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding: 0.5rem 0.75rem 0 0;
+  color: var(--color-burgundy);
+}
+
+.ornament-border {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 10px,
+      var(--color-burgundy) 10px,
+      var(--color-burgundy) 12px,
+      transparent 12px,
+      transparent 22px
+    );
+  background-size: 100% 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.paper-texture {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(184, 146, 74, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(122, 31, 43, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
+}
+
+.hero-gradient {
+  background:
+    linear-gradient(135deg, rgba(26, 18, 8, 0.85) 0%, rgba(78, 17, 25, 0.75) 50%, rgba(26, 18, 8, 0.9) 100%);
+}
+
+.gold-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-burgundy);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-burgundy-dark);
+}
